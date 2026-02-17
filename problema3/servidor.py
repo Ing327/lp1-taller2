@@ -46,7 +46,7 @@ def atender_cliente(cliente, nombre):
             # Imprimir el mensaje en el servidor
            
             
-            # TODO: Retransmitir el mensaje a todos los clientes excepto al remitente
+            # : Retransmitir el mensaje a todos los clientes excepto al remitente
 
             
         except ConnectionResetError:
@@ -83,7 +83,7 @@ print("Servidor chat a la espera de conexiones ...")
 
 # Bucle principal para aceptar conexiones entrantes
 while True:
-    # TODO: Aceptar una conexión entrante
+    # : Aceptar una conexión entrante
     # client: nuevo socket para comunicarse con el cliente
     # addr: dirección y puerto del cliente
     
