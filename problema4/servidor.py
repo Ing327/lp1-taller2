@@ -4,13 +4,16 @@ Problema 4: Servidor HTTP básico - Servidor
 Objetivo: Implementar un servidor web simple que responda peticiones HTTP GET
 y sirva archivos estáticos comprendiendo headers HTTP
 """
-
-import http.server
 import socket
+import http.server
 
-# TODO: Definir la dirección y puerto del servidor HTTP
 
-class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
+HOST = 'localhost'
+PORT = 9000
+
+# : Definir la dirección y puerto del servidor HTTP
+
+class Servidor(http.server.SimpleHTTPRequestHandler):
     """
     Manejador personalizado de peticiones HTTP.
     Hereda de SimpleHTTPRequestHandler que proporciona funcionalidad básica
@@ -25,15 +28,16 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
     pass
     # Nota: Al no sobreescribir ningún método, se usa el comportamiento por defecto
     # que sirve archivos del directorio actual y genera listados de directorios
-
-# TODO: Crear una instancia de servidor HTTP
+servidor = http.server.HTTPServer((HOST, PORT), Servidor)
+servidor.serve_forever()
+# : Crear una instancia de servidor HTTP
 # HTTPServer maneja las conexiones entrantes y delega el procesamiento
 # de peticiones al manejador especificado (MyRequestHandler)
 # Parámetros:
 # - (HOST, PORT): Dirección y puerto donde escuchar
 # - MyRequestHandler: Clase que manejará las peticiones HTTP
 
-# TODO: Iniciar el servidor y ponerlo en ejecución continua
+# : Iniciar el servidor y ponerlo en ejecución continua
 # serve_forever() maneja peticiones indefinidamente hasta una interrupción
 # (normalmente con Ctrl+C en la terminal)
 
