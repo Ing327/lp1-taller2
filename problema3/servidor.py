@@ -41,7 +41,7 @@ def atender_cliente(cliente, nombre):
                 
             # Formatear el mensaje con el nombre del cliente
             print(f"{nombre}: {mensaje.decode()}")
-            broadcast(mensaje, cliente)
+            broadcast(mensaje.decode(), cliente)
             
             # Imprimir el mensaje en el servidor
            
@@ -87,7 +87,7 @@ while True:
     # client: nuevo socket para comunicarse con el cliente
     # addr: dirección y puerto del cliente
     
-    cliente, direccion = servidor.accept
+    cliente, direccion = servidor.accept()
     
     print(f"Conexión realizada desde la IP {direccion}")
     
@@ -99,7 +99,7 @@ while True:
     # : Agregar el socket del cliente a la lista de clientes conectados
     
     # Enviar mensaje de confirmación de conexión al cliente
-    client.send("ya estás conectado!".encode())
+    cliente.send("ya estás conectado!".encode())
     
     # Notificar a todos los clientes que un nuevo usuario se unió al chat
     broadcast(f"{nombre} se ha unido al 'Chat'", cliente)
