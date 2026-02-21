@@ -14,3 +14,6 @@
 - Reenviar datos bidireccional
 - Manejar HTTPS (CONNECT method)
 
+para ejecutar el codigo introducir 
+
+curl -x http://localhost:8888 http://example.com
